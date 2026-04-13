@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>LF 13 Komplett — KA Frau HOL 14.04.</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b11;--bg2:#12121c;--bg3:#1a1a28;--tx:#e8e8ed;--tx2:#9a9ab0;--tx3:#5e5e74;--acc:#e94560;--blue:#00b4d8;--green:#52b788;--purple:#b388ff;--amber:#ffb347;--coral:#ff8a65;--teal:#4db6ac;--pink:#f48fb1;--rad:14px;--rs:10px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;-webkit-font-smoothing:antialiased}
+.hero{padding:28px 20px 20px;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);border-bottom:2px solid var(--acc)}
+.hero h1{font-size:20px;font-weight:700;letter-spacing:-.5px}
+.hero .sub{font-size:12px;color:var(--tx2);margin-top:3px}
+.hero .badge{display:inline-block;font-size:11px;background:var(--acc);color:#fff;padding:3px 12px;border-radius:20px;font-weight:700;margin-top:8px}
+.nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid #1f1f30;padding:0 16px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+.nav::-webkit-scrollbar{display:none}
+.nav-inner{display:flex;gap:0;min-width:max-content}
+.nb{padding:12px 14px;font-size:11px;font-weight:500;color:var(--tx3);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;font-family:inherit;white-space:nowrap}
+.nb:hover{color:var(--tx2)}
+.nb.a{color:var(--acc);border-bottom-color:var(--acc)}
+.sec{display:none;padding:18px 16px 40px;max-width:780px;margin:0 auto}
+.sec.a{display:block}
+.st{font-size:18px;font-weight:700;margin:0 0 4px}
+.ss{font-size:12px;color:var(--tx2);margin-bottom:16px}
+.c{background:var(--bg2);border:1px solid #1f1f30;border-radius:var(--rad);padding:16px;margin-bottom:12px}
+.ch{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.cn{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.ct{font-size:14px;font-weight:700;flex:1}
+.ca{font-size:13px;color:var(--tx3);transition:transform .2s}
+.ca.o{transform:rotate(180deg)}
+.cb{display:none;margin-top:12px}
+.cb.o{display:block}
+.c p{font-size:13px;color:var(--tx2);margin-bottom:8px;line-height:1.65}
+.c p:last-child{margin-bottom:0}
+.hl{color:var(--tx);font-weight:600}
+.bx{padding:11px 13px;border-radius:var(--rs);margin:7px 0;font-size:13px;line-height:1.55}
+.b1{background:#0f3460;color:#90caf9;border-left:3px solid var(--blue)}
+.b2{background:#1b4332;color:#a5d6a7;border-left:3px solid var(--green)}
+.b3{background:#3e2723;color:#ffab91;border-left:3px solid var(--coral)}
+.b4{background:#312244;color:#ce93d8;border-left:3px solid var(--purple)}
+.b5{background:#3e2a05;color:#ffe082;border-left:3px solid var(--amber)}
+.b6{background:#004d40;color:#80cbc4;border-left:3px solid var(--teal)}
+.b7{background:#3b1111;color:#ef9a9a;border-left:3px solid #e53935}
+.b8{background:#3b1131;color:#f48fb1;border-left:3px solid var(--pink)}
+.fm{font-family:'JetBrains Mono',monospace;background:var(--bg3);border-radius:8px;padding:8px 12px;font-size:12px;color:#f0f0f0;margin:6px 0;display:block;line-height:1.5}
+.fn{font-size:11px;color:var(--teal);margin-top:2px;font-style:italic}
+.na{background:var(--acc);color:#fff}
+.nb1{background:var(--blue);color:#000}
+.ng{background:var(--green);color:#000}
+.np{background:var(--purple);color:#000}
+.nam{background:var(--amber);color:#000}
+.nc{background:var(--coral);color:#000}
+.nt{background:var(--teal);color:#000}
+.npk{background:var(--pink);color:#000}
+.tbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:12px}
+.tbl th{background:var(--bg3);padding:8px 10px;text-align:left;font-weight:600;color:var(--tx);border-bottom:1px solid #2a2a3a}
+.tbl td{padding:7px 10px;border-bottom:1px solid #1a1a28;color:var(--tx2)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .r{text-align:right;font-family:'JetBrains Mono',monospace;color:var(--tx)}
+.eq{background:var(--bg2);border:1px solid #e9456033;border-left:3px solid var(--acc);border-radius:var(--rs);padding:14px 16px;margin-bottom:12px}
+.eq-n{font-size:11px;font-weight:700;color:var(--acc);margin-bottom:4px}
+.eq-q{font-size:13px;font-weight:500;color:var(--tx);margin-bottom:6px;line-height:1.5}
+.eq-p{font-size:11px;color:var(--tx3)}
+.eq-h{display:none;margin-top:10px;padding:10px 12px;background:var(--bg3);border-radius:8px;font-size:12px;color:var(--teal);line-height:1.5}
+.eq-h.o{display:block}
+.eq-t{font-size:12px;color:var(--blue);cursor:pointer;margin-top:6px;display:inline-block}
+.prog{display:flex;gap:3px;margin:12px 0 16px;flex-wrap:wrap}
+.pd{width:22px;height:5px;border-radius:3px;background:var(--bg3)}
+.pd.d{background:var(--green)}
+.pd.cu{background:var(--acc)}
+@media(min-width:600px){.sec{padding:24px 28px 60px}.hero{padding:36px 28px 24px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>LF 13 — Komplettguide</h1>
+  <div class="sub">Finanzierungen für Geschäfts- & Firmenkunden</div>
+  <div class="badge">KA Dienstag 14.04. — Frau HOL</div>
+</div>
+
+<nav class="nav"><div class="nav-inner">
+  <button class="nb a" onclick="S(0)">Start</button>
+  <button class="nb" onclick="S(1)">Finanzierung</button>
+  <button class="nb" onclick="S(2)">Kreditarten</button>
+  <button class="nb" onclick="S(3)">Kreditprüfung</button>
+  <button class="nb" onclick="S(4)">KWG + MaRisk</button>
+  <button class="nb" onclick="S(5)">Bilanz</button>
+  <button class="nb" onclick="S(6)">Kennziffern</button>
+  <button class="nb" onclick="S(7)">Ertrag</button>
+  <button class="nb" onclick="S(8)">Rating</button>
+  <button class="nb" onclick="S(9)">Darlehen</button>
+  <button class="nb" onclick="S(10)">Sicherheiten</button>
+  <button class="nb" onclick="S(11)">Zession</button>
+  <button class="nb" onclick="S(12)">Überwachung</button>
+  <button class="nb" onclick="S(13)">Predictions 🎰</button>
+</div></nav>
+
+<!-- ===== 0 START ===== -->
+<div class="sec a" id="s0">
+<div class="st">Jo, Hallo.</div>
+<div class="ss">Hier für euch, falls ihr auch noch gefühlt nichts gelernt habt.</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn na">!</div><div class="ct">Was ist das hier?</div><div class="ca o">▾</div></div><div class="cb o">
+<p>Nochmal <span class="hl">das Wichtigste in einem</span> — alles was morgen drankommen kann, von vorne bis hinten durcherklärt. Kein Buch-Deutsch, einfach so dass man's checkt.</p>
+<p>Ganz hinten im letzten Tab: <span class="hl">Predictions für die morgige KA</span> — Wahrscheinlichkeit hoch 🎰 — zusammengestellt anhand dessen was heute im Unterricht besprochen wurde.</p>
+<p>Einfach Tab für Tab durchgehen. Jedes Thema hat am Ende Selbsttest-Fragen zum Überprüfen.</p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nb1">?</div><div class="ct">Worum geht's nochmal?</div><div class="ca o">▾</div></div><div class="cb o">
+<p>Ihr sitzt in der <span class="hl">Rottweiler Bank AG</span>. Ihr seid Firmenkundenberater. <span class="hl">Franz Zeiler</span> ruft an — Bäckerei Zeiler GmbH, 136 Mitarbeiter, 12 Filialen, beliefert Aldi, Lidl, jetzt auch Burger King.</p>
+<p>Er sagt: <span class="hl">"Ich brauch 1,4 Mio. € für neue Maschinen und 150.000 € für laufende Kosten."</span></p>
+<p>Euer Job: Rausfinden ob ihr ihm das Geld geben könnt. Wenn ja — welcher Kredit, welcher Zinssatz, welche Sicherheiten. Und danach: den Kredit überwachen.</p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn ng">→</div><div class="ct">So läuft's ab — der rote Faden</div><div class="ca">▾</div></div><div class="cb">
+<div class="bx b1"><span class="hl">1. Finanzierung</span> — Woher kommt Geld überhaupt?</div>
+<div class="bx b2"><span class="hl">2. Kreditarten</span> — Welchen Kredit braucht er?</div>
+<div class="bx b5"><span class="hl">3. Kreditprüfung</span> — Darf er? Kann er? Auch Soft Skills!</div>
+<div class="bx b7"><span class="hl">4. KWG + MaRisk</span> — Was sagt das Gesetz?</div>
+<div class="bx b4"><span class="hl">5. Bilanz + Kennziffern</span> — Zahlen analysieren</div>
+<div class="bx b6"><span class="hl">6. Rating</span> — Note vergeben</div>
+<div class="bx b3"><span class="hl">7. Darlehen berechnen</span> — Annuität, Tilgung, Kontokorrent</div>
+<div class="bx b8"><span class="hl">8. Sicherheiten + Zession</span> — Absichern</div>
+<div class="bx b1"><span class="hl">9. Kreditüberwachung</span> — Nach Auszahlung: BWA, Bilanz prüfen</div>
+<p style="margin-top:10px">Arbeitet euch Tab für Tab durch. Ganz am Ende: wahrscheinliche Klausurfragen.</p>
+</div></div>
+</div>
+
+<!-- ===== 1 FINANZIERUNG ===== -->
+<div class="sec" id="s1">
+<div class="st">Unternehmensfinanzierung</div>
+<div class="ss">Woher kommt Geld für ein Unternehmen?</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nc">A</div><div class="ct">Außenfinanzierung</div><div class="ca o">▾</div></div><div class="cb o">
+<p>Kapital kommt von <span class="hl">außerhalb</span> des Unternehmens.</p>
+<div class="bx b3"><span class="hl">Kreditfinanzierung</span> — Bank gibt Geld → Fremdkapital. Zurückzahlen + Zinsen.</div>
+<div class="bx b6"><span class="hl">Beteiligungsfinanzierung</span> — Neuer Gesellschafter steigt ein → Eigenkapital. Kein Zurückzahlen, aber er redet mit.</div>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn ng">I</div><div class="ct">Innenfinanzierung</div><div class="ca o">▾</div></div><div class="cb o">
+<p>Kapital entsteht <span class="hl">im Unternehmen</span>. Kein Externer nötig.</p>
+<div class="bx b2"><span class="hl">Selbstfinanzierung</span> — Gewinne einbehalten → EK steigt</div>
+<div class="bx b1"><span class="hl">Aus Abschreibungen</span> — Aufwand in der GuV, aber kein Geldabfluss → Geld bleibt im U. → EK</div>
+<div class="bx b4"><span class="hl">Aus Rückstellungen</span> — Geld für zukünftige Verpflichtungen zurückgelegt → steht erstmal zur Verfügung → FK (weil es irgendwann bezahlt werden muss!)</div>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn na">!</div><div class="ct">Fangfrage: Rückstellung vs. Rücklage</div><div class="ca">▾</div></div><div class="cb">
+<div class="bx b7"><span class="hl">Rückstellung</span> = Schuld die noch kommt → FK. Z.B. Pensionszusagen, drohende Steuernachzahlung.</div>
+<div class="bx b2"><span class="hl">Rücklage</span> = einbehaltener Gewinn der Eigentümer → EK.</div>
+<p><span class="hl">Klassiker in der Prüfung. Nicht verwechseln!</span></p>
+</div></div>
+<div class="c" style="border-color:var(--acc)"><div class="ch" onclick="T(this)"><div class="cn na">?</div><div class="ct">Selbsttest — Finanzierung</div><div class="ca">▾</div></div><div class="cb">
+<div class="eq"><div class="eq-q">1. Nennen Sie je ein Beispiel für Außen- und Innenfinanzierung und ordnen Sie es EK oder FK zu.</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Außen: Bankkredit → FK. Innen: Gewinneinbehaltung (Selbstfinanzierung) → EK.</div></div>
+<div class="eq"><div class="eq-q">2. Warum sind Rückstellungen Fremdkapital, obwohl das Geld im Unternehmen liegt?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Weil Rückstellungen Verpflichtungen sind, die irgendwann bezahlt werden müssen (z.B. Pensionen, Steuernachzahlung). Das Geld gehört dem U nicht — es schuldet es jemandem.</div></div>
+<div class="eq"><div class="eq-q">3. Finanzierung aus Abschreibungen — warum bleibt da Geld im Unternehmen?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Abschreibungen werden als Aufwand in der GuV verrechnet (mindern den Gewinn), aber es fließt kein echtes Geld aus dem Unternehmen. Der Gegenwert bleibt als Liquidität erhalten.</div></div>
+</div></div>
+</div>
+
+<!-- ===== 2 KREDITARTEN ===== -->
+<div class="sec" id="s2">
+<div class="st">Kreditarten</div>
+<div class="ss">Frau HOL hat diese explizit genannt. Jede muss sitzen.</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nc">1</div><div class="ct">Kontokorrentkredit (Dispo)</div><div class="ca o">▾</div></div><div class="cb o">
+<div class="bx b3"><span class="hl">Kurzfristig, variabler Zins, teuer</span> (z.B. 9,25 %). Kreditlinie auf dem Geschäftskonto. Für Betriebsmittel: Rohstoffe, Löhne, Überbrückung.</div>
+<p><span class="hl">Genehmigte Überziehung</span> = vereinbart, niedrigerer Zins (z.B. 6,50 %)</p>
+<p><span class="hl">Geduldete Überziehung</span> = Bank toleriert es nur, höherer Zins (z.B. 11 %)</p>
+<p>→ Zeilers 150.000 € Betriebsmittelkredit</p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nb1">2</div><div class="ct">Investitionskredit</div><div class="ca o">▾</div></div><div class="cb o">
+<div class="bx b1"><span class="hl">Langfristig, Festzins</span> (z.B. 4,0–4,25 %). Für Maschinen, Hallen, Fahrzeuge. Wird als Annuitäten- oder Tilgungsdarlehen ausgezahlt.</div>
+<p>→ Zeilers 1.400.000 € für Produktionsmaschinen</p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn np">3</div><div class="ct">Tilgungsdarlehen vs. Annuitätendarlehen vs. Festdarlehen</div><div class="ca">▾</div></div><div class="cb">
+<div class="bx b4"><span class="hl">Annuität</span> — Rate bleibt gleich. Zinsen sinken, Tilgung steigt.</div>
+<div class="bx b1"><span class="hl">Tilgung</span> — Tilgung bleibt gleich. Zinsen sinken, Rate sinkt.</div>
+<div class="bx b5"><span class="hl">Festdarlehen (endfällig)</span> — Während der Laufzeit nur Zinsen zahlen. Am Ende: gesamte Summe auf einmal zurück. Risiko: muss am Ende alles da sein!</div>
+<p><span class="hl">Frau HOL hat alle drei explizit genannt.</span></p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn ng">4</div><div class="ct">Avalkredit</div><div class="ca">▾</div></div><div class="cb">
+<p>Bank gibt <span class="hl">kein Geld, sondern eine Bürgschaft/Garantie</span>. Beispiel: Mietkaution, Zollbürgschaft, Bietungsgarantie bei Ausschreibungen.</p>
+<p>Bank verdient Avalprovision, muss aber zahlen wenn der Kunde nicht leistet.</p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nt">5</div><div class="ct">Leasing</div><div class="ca">▾</div></div><div class="cb">
+<div class="bx b6"><span class="hl">Nutzung auf Zeit.</span> Leasingnehmer = Besitzer. Leasinggeber = Eigentümer! Monatliche Leasingrate.</div>
+<p><span class="hl">Klausurfalle:</span> Besitzer ≠ Eigentümer. Wer least, besitzt — aber gehören tut es ihm nicht.</p>
+<p>Frau HOL: "Leasing kann auch drankommen."</p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nam">6</div><div class="ct">Factoring</div><div class="ca">▾</div></div><div class="cb">
+<div class="bx b5"><span class="hl">Forderungsverkauf.</span> Unternehmen verkauft offene Rechnungen an Factor → kriegt sofort ca. 80–90 % ausgezahlt. Factor übernimmt Ausfallrisiko.</div>
+<p>Frau HOL: "Nur ein kleiner Teil. Factoring ist ein Teil der Kreditwürdigkeit." Also wissen was es ist, aber keine Riesenaufgabe erwarten.</p>
+</div></div>
+<div class="c" style="border-color:var(--acc)"><div class="ch" onclick="T(this)"><div class="cn na">?</div><div class="ct">Selbsttest — Kreditarten</div><div class="ca">▾</div></div><div class="cb">
+<div class="eq"><div class="eq-q">1. Zeiler braucht kurzfristig Geld für Mehl und Zucker. Welche Kreditart und warum?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Kontokorrentkredit (Betriebsmittelkredit). Kurzfristiger Bedarf für Roh-/Hilfsstoffe → flexibler Dispo-Rahmen auf dem Geschäftskonto.</div></div>
+<div class="eq"><div class="eq-q">2. Was ist der Unterschied zwischen Besitzer und Eigentümer beim Leasing?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Leasingnehmer = Besitzer (nutzt die Sache). Leasinggeber = Eigentümer (ihm gehört sie rechtlich). Besitz ≠ Eigentum!</div></div>
+<div class="eq"><div class="eq-q">3. Worin unterscheidet sich ein Annuitätendarlehen von einem Tilgungsdarlehen?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Annuität: Rate bleibt gleich (Zinsen sinken, Tilgung steigt). Tilgung: Tilgung bleibt gleich (Zinsen sinken, Rate sinkt). Festdarlehen: Nur Zinsen, am Ende alles zurück.</div></div>
+</div></div>
+</div>
+
+<!-- ===== 3 KREDITPRÜFUNG ===== -->
+<div class="sec" id="s3">
+<div class="st">Kreditprüfung</div>
+<div class="ss">Frau HOL hat extra die Soft Skills betont!</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nb1">1</div><div class="ct">Kreditfähigkeit — "Darf er?"</div><div class="ca o">▾</div></div><div class="cb o">
+<p>Rein <span class="hl">rechtliche</span> Frage:</p>
+<div class="bx b1"><span class="hl">Geschäftsfähigkeit</span> — Volljährig? Nicht entmündigt?</div>
+<div class="bx b1"><span class="hl">Vertretungsberechtigung</span> — Bei GmbH: Geschäftsführer im Handelsregister? Alleinvertretungsberechtigt?</div>
+<p>→ Handelsregisterauszug anfordern</p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nam">2</div><div class="ct">Kreditwürdigkeit — "Kann und will er?"</div><div class="ca o">▾</div></div><div class="cb o">
+<p>Zwei Seiten:</p>
+<div class="bx b5"><span class="hl">Persönliche Kreditwürdigkeit (= Soft Skills!)</span>
+<br>→ Aufgeschlossenheit: Liefert er Unterlagen freiwillig? Kooperativ?
+<br>→ Reputation: Guter Ruf in der Branche?
+<br>→ Fachliche Qualifikation: Hat er Ahnung von dem was er macht?
+<br>→ Zuverlässigkeit: Zahlt er pünktlich? Kontoführung sauber?
+<br>→ Nachfolgeregelung: Was passiert wenn ihm was passiert?</div>
+<div class="bx b6"><span class="hl">Materielle/wirtschaftliche Kreditwürdigkeit (= harte Zahlen)</span>
+<br>→ Vermögenslage: Was besitzt er? (Bilanz)
+<br>→ Ertragslage: Verdient er genug? (GuV)
+<br>→ Liquiditätslage: Kann er laufende Rechnungen zahlen?</div>
+<p><span class="hl">Frau HOL hat die Soft Skills extra betont</span> — "nicht nur harte Zahlen". Das kommt dran!</p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn ng">3</div><div class="ct">Unterlagen fürs Kreditgespräch</div><div class="ca">▾</div></div><div class="cb">
+<table class="tbl"><tr><th>Unterlage</th><th>Wozu?</th></tr>
+<tr><td>Jahresabschlüsse (3 Jahre)</td><td>Bilanz + GuV → Vermögens-/Ertragslage</td></tr>
+<tr><td>BWA</td><td>Aktuelle unterjährige Zahlen</td></tr>
+<tr><td>Handelsregisterauszug</td><td>Rechtsform, Vertretungsberechtigung → Kreditfähigkeit</td></tr>
+<tr><td>Gesellschaftsvertrag</td><td>Gesellschafter, Haftung, Stammkapital</td></tr>
+<tr><td>Investitionsplan</td><td>Wofür genau wird das Geld verwendet?</td></tr>
+<tr><td>Liquiditätsplan</td><td>Kann er die Raten in Zukunft bedienen?</td></tr>
+<tr><td>Kostenvoranschläge</td><td>Prüfen ob Investitionskosten realistisch</td></tr>
+</table></div></div>
+<div class="c" style="border-color:var(--acc)"><div class="ch" onclick="T(this)"><div class="cn na">?</div><div class="ct">Selbsttest — Kreditprüfung</div><div class="ca">▾</div></div><div class="cb">
+<div class="eq"><div class="eq-q">1. Was ist der Unterschied zwischen Kreditfähigkeit und Kreditwürdigkeit?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Kreditfähigkeit = rechtliche Frage (darf er einen Vertrag abschließen? Geschäftsfähig? Vertretungsberechtigt?). Kreditwürdigkeit = wirtschaftliche Frage (kann und will er zurückzahlen?).</div></div>
+<div class="eq"><div class="eq-q">2. Nennen Sie 3 Aspekte der persönlichen Kreditwürdigkeit (Soft Skills).</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Z.B.: Fachliche Qualifikation, Aufgeschlossenheit/Kooperationsbereitschaft, Reputation in der Branche, Nachfolgeregelung, Zuverlässigkeit, Kontoführungsverhalten.</div></div>
+<div class="eq"><div class="eq-q">3. Welche Unterlage prüft die Kreditfähigkeit — und warum?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Handelsregisterauszug. Zeigt Rechtsform, wer Geschäftsführer ist, ob er alleinvertretungsberechtigt ist → damit weiß die Bank, ob er rechtlich wirksam einen Kreditvertrag abschließen darf.</div></div>
+</div></div>
+</div>
+
+<!-- ===== 4 KWG + MaRisk ===== -->
+<div class="sec" id="s4">
+<div class="st">KWG + MaRisk</div>
+<div class="ss">Frau HOL: "KWG-Vorschriften haben wir gemacht. MaRisk haben wir gemacht."</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn na">§18</div><div class="ct">Offenlegungspflicht</div><div class="ca o">▾</div></div><div class="cb o">
+<div class="bx b7"><span class="hl">Kredit > 750.000 €</span> → Bank MUSS sich wirtschaftliche Verhältnisse offenlegen lassen (Jahresabschlüsse). Pflicht!</div>
+<p>Zeiler: 1,55 Mio. € → klar über 750k → greift.</p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nc">§13</div><div class="ct">Großkredite</div><div class="ca o">▾</div></div><div class="cb o">
+<div class="bx b3"><span class="hl">Kredit > 10 % des haftenden EK der Bank</span> → Anzeigepflicht an BaFin + Bundesbank.</div>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn np">§14</div><div class="ct">Millionenkredite</div><div class="ca o">▾</div></div><div class="cb o">
+<div class="bx b4"><span class="hl">Kredit ≥ 1 Mio. €</span> → Anzeige an Evidenzzentrale der Bundesbank. Sammelt alle Millionenkredite — Überblick über Gesamtverschuldung eines Kunden.</div>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn npk">§15</div><div class="ct">Organkredite</div><div class="ca">▾</div></div><div class="cb">
+<div class="bx b8"><span class="hl">Kredite an Vorstände, Aufsichtsräte etc.</span> → Einstimmiger Beschluss + marktübliche Bedingungen. Keine Vetternwirtschaft.</div>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nb1">M</div><div class="ct">MaRisk — Mindestanforderungen an das Risikomanagement</div><div class="ca o">▾</div></div><div class="cb o">
+<p>MaRisk sind <span class="hl">Verwaltungsanweisungen der BaFin</span>, die regeln wie Banken mit Risiken umgehen müssen. Für Kredite wichtig:</p>
+<div class="bx b1"><span class="hl">Trennung Markt und Marktfolge</span> — Der Berater der den Kredit verkauft (Markt) darf NICHT derselbe sein, der ihn genehmigt (Marktfolge). Vier-Augen-Prinzip!</div>
+<div class="bx b1"><span class="hl">Kreditprozess</span> — Klare Regeln für: Kreditvergabe, Kreditweiterbearbeitung (Überwachung), Kreditbearbeitung bei Problemkrediten.</div>
+<div class="bx b1"><span class="hl">Risikofrüherkennung</span> — Bank muss Warnsignale erkennen: Kontoüberziehungen, verspätete Bilanzen, Branchenprobleme.</div>
+<p><span class="hl">Merke:</span> MaRisk = die internen Spielregeln der Bank, KWG = das Gesetz dahinter.</p>
+</div></div>
+<div class="c" style="border-color:var(--acc)"><div class="ch" onclick="T(this)"><div class="cn na">?</div><div class="ct">Selbsttest — KWG + MaRisk</div><div class="ca">▾</div></div><div class="cb">
+<div class="eq"><div class="eq-q">1. Zeiler beantragt 1,55 Mio. €. Welche KWG-Paragraphen greifen?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">§ 18 (über 750k → Offenlegung Jahresabschlüsse) und § 14 (über 1 Mio. → Meldung an Evidenzzentrale). Evtl. § 13 wenn > 10 % des haftenden EK der Bank.</div></div>
+<div class="eq"><div class="eq-q">2. Was bedeutet die Trennung von Markt und Marktfolge bei MaRisk?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Vier-Augen-Prinzip: Der Berater der den Kredit verkauft (Markt) darf nicht derselbe sein der ihn genehmigt (Marktfolge). Verhindert Interessenkonflikte.</div></div>
+<div class="eq"><div class="eq-q">3. § 15 KWG — was regelt er und warum?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Organkredite: Kredite an Vorstände, Aufsichtsräte, Geschäftsleiter der Bank. Brauchen einstimmigen Beschluss + marktübliche Bedingungen. Verhindert Vetternwirtschaft.</div></div>
+</div></div>
+</div>
+
+<!-- ===== 5 BILANZ ===== -->
+<div class="sec" id="s5">
+<div class="st">Bilanz lesen</div>
+<div class="ss">Ihr müsst Zeilers Bilanz verstehen und die Zahlen kennen.</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nb1">?</div><div class="ct">Was ist eine Bilanz?</div><div class="ca o">▾</div></div><div class="cb o">
+<p>Eine Waage. Links: was das U <span class="hl">besitzt</span> (Aktiva). Rechts: <span class="hl">woher das Geld kam</span> (Passiva). Beide Seiten sind immer gleich.</p>
+<div class="bx b1"><span class="hl">AKTIVA = Mittelverwendung</span> — "Wo steckt das Geld?"
+<br>→ Anlagevermögen (AV): Gebäude, Maschinen, BGA — langfristig
+<br>→ Umlaufvermögen (UV): Vorräte, Forderungen, Bank, Kasse — kurzfristig</div>
+<div class="bx b2"><span class="hl">PASSIVA = Mittelherkunft</span> — "Woher kam das Geld?"
+<br>→ Eigenkapital: Stammkapital + Rücklagen + Gewinn
+<br>→ Fremdkapital: Rückstellungen + langfr. Verbindl. + kurzfr. Verbindl.</div>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn ng">Z</div><div class="ct">Bilanz Zeiler GmbH (Tsd. €) — Jahr 1 | 2 | 3</div><div class="ca">▾</div></div><div class="cb">
+<table class="tbl"><tr><th>AKTIVA</th><th class="r">J1</th><th class="r">J2</th><th class="r">J3</th></tr>
+<tr><td>Grundst./Gebäude</td><td class="r">917</td><td class="r">921</td><td class="r">927</td></tr>
+<tr><td>Maschinen</td><td class="r">1.166</td><td class="r">908</td><td class="r">901</td></tr>
+<tr><td>BGA</td><td class="r">178</td><td class="r">176</td><td class="r">163</td></tr>
+<tr><td>Finanzanlagen</td><td class="r">30</td><td class="r">16</td><td class="r">15</td></tr>
+<tr><td>Vorräte</td><td class="r">267</td><td class="r">227</td><td class="r">231</td></tr>
+<tr><td>Forderungen a.LuL</td><td class="r">112</td><td class="r">109</td><td class="r">96</td></tr>
+<tr><td>Bankguthaben</td><td class="r">41</td><td class="r">56</td><td class="r">44</td></tr>
+<tr><td>Kassenbestand</td><td class="r">11</td><td class="r">13</td><td class="r">8</td></tr>
+<tr><td><span class="hl">SUMME</span></td><td class="r"><span class="hl">2.730</span></td><td class="r"><span class="hl">2.432</span></td><td class="r"><span class="hl">2.390</span></td></tr></table>
+<table class="tbl"><tr><th>PASSIVA</th><th class="r">J1</th><th class="r">J2</th><th class="r">J3</th></tr>
+<tr><td>Stammkapital</td><td class="r">354</td><td class="r">354</td><td class="r">354</td></tr>
+<tr><td>Rücklagen</td><td class="r">3</td><td class="r">2</td><td class="r">2</td></tr>
+<tr><td>Bilanzgewinn/-verlust</td><td class="r">−7</td><td class="r">3</td><td class="r">48</td></tr>
+<tr><td>Rückstellungen</td><td class="r">23</td><td class="r">42</td><td class="r">45</td></tr>
+<tr><td>Langfr. Verbindl.</td><td class="r">1.423</td><td class="r">1.414</td><td class="r">1.452</td></tr>
+<tr><td>Kurzfr. Verbindl.</td><td class="r">638</td><td class="r">390</td><td class="r">281</td></tr>
+<tr><td>Verbindl. a.LuL</td><td class="r">296</td><td class="r">227</td><td class="r">208</td></tr>
+<tr><td><span class="hl">SUMME</span></td><td class="r"><span class="hl">2.730</span></td><td class="r"><span class="hl">2.432</span></td><td class="r"><span class="hl">2.390</span></td></tr></table>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nam">G</div><div class="ct">GuV Zeiler GmbH (Tsd. €)</div><div class="ca">▾</div></div><div class="cb">
+<table class="tbl"><tr><th>Position</th><th class="r">J1</th><th class="r">J2</th><th class="r">J3</th></tr>
+<tr><td>Umsatzerlöse</td><td class="r">3.188</td><td class="r">3.063</td><td class="r">3.085</td></tr>
+<tr><td>− Rohstoffe</td><td class="r">698</td><td class="r">683</td><td class="r">679</td></tr>
+<tr><td>− Personalaufwand</td><td class="r">1.398</td><td class="r">1.303</td><td class="r">1.262</td></tr>
+<tr><td>− Abschreibungen</td><td class="r">224</td><td class="r">226</td><td class="r">228</td></tr>
+<tr><td>− Zinsen</td><td class="r">300</td><td class="r">295</td><td class="r">276</td></tr>
+<tr><td><span class="hl">= JÜ / Fehlbetrag</span></td><td class="r"><span class="hl">−7</span></td><td class="r"><span class="hl">3</span></td><td class="r"><span class="hl">23</span></td></tr></table>
+</div></div>
+<div class="c" style="border-color:var(--acc)"><div class="ch" onclick="T(this)"><div class="cn na">?</div><div class="ct">Selbsttest — Bilanz</div><div class="ca">▾</div></div><div class="cb">
+<div class="eq"><div class="eq-q">1. Was zeigt die Aktiv-Seite, was die Passiv-Seite der Bilanz?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Aktiva = Mittelverwendung (wo steckt das Geld? AV + UV). Passiva = Mittelherkunft (woher kam es? EK + FK).</div></div>
+<div class="eq"><div class="eq-q">2. Wie hoch ist das Eigenkapital der Bäckerei Zeiler im Jahr 3?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Stammkapital 354 + Rücklagen 2 + Bilanzgewinn 48 = 404 Tsd. €</div></div>
+<div class="eq"><div class="eq-q">3. Was gehört zu den liquiden Mitteln?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Bankguthaben + Kassenbestand. Bei Zeiler J3: 44 + 8 = 52 Tsd. €</div></div>
+</div></div>
+</div>
+
+<!-- ===== 6 KENNZIFFERN ===== -->
+<div class="sec" id="s6">
+<div class="st">Bilanzkennziffern</div>
+<div class="ss">Formeln auswendig! Jede Kennziffer beantwortet eine Frage.</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn np">1</div><div class="ct">Kapitalstruktur</div><div class="ca o">▾</div></div><div class="cb o">
+<p><span class="hl">Eigenkapitalquote</span> — "Wie viel % gehört den Eigentümern?"</p>
+<div class="fm">(EK × 100) / Gesamtkapital</div><div class="fn">Soll: mind. 20 %. Zeiler J3: (404 × 100) / 2.390 = 16,9 % → zu niedrig</div>
+<p style="margin-top:10px"><span class="hl">Verschuldungsgrad</span> — "Wie viel % sind Schulden?"</p>
+<div class="fm">(FK × 100) / Gesamtkapital</div><div class="fn">Gegenstück zur EK-Quote. Zeiler J3: 83,1 % → hoch</div>
+<p style="margin-top:10px"><span class="hl">Vermögensstruktur</span> — "Wie viel steckt im AV?"</p>
+<div class="fm">(AV × 100) / Gesamtkapital</div><div class="fn">= Anlagenintensität. Hoher Wert = wenig flexibel</div>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn ng">2</div><div class="ct">Anlagendeckung</div><div class="ca o">▾</div></div><div class="cb o">
+<p><span class="hl">Anlagendeckung I</span> — "Deckt EK das AV?"</p>
+<div class="fm">(EK × 100) / AV</div><div class="fn">Goldene Bilanzregel: sollte ≥ 100 %. Bei Zeiler: unter 100 %</div>
+<p style="margin-top:10px"><span class="hl">Anlagendeckung II</span> — "Decken EK + langfr. FK das AV?"</p>
+<div class="fm">((EK + langfr. FK) × 100) / AV</div><div class="fn">Silberne Bilanzregel: MUSS ≥ 100 %. Langfr. Vermögen = langfr. finanziert</div>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nb1">3</div><div class="ct">Liquidität</div><div class="ca o">▾</div></div><div class="cb o">
+<p><span class="hl">1. Grades</span> — "Kann er sofort mit Cash zahlen?"</p>
+<div class="fm">(Liquide Mittel × 100) / kurzfr. Verbindl.</div><div class="fn">Liquide Mittel = Bank + Kasse</div>
+<p style="margin-top:10px"><span class="hl">2. Grades</span> — "Wenn auch Forderungen reinkommen?"</p>
+<div class="fm">((Liq. Mittel + Forderungen) × 100) / kurzfr. Verbindl.</div><div class="fn">Soll: ≥ 100 %</div>
+<p style="margin-top:10px"><span class="hl">3. Grades</span> — "Gesamtes UV vs. kurzfr. Schulden?"</p>
+<div class="fm">(Umlaufvermögen × 100) / kurzfr. Verbindl.</div><div class="fn">Soll: ≥ 200 %</div>
+</div></div>
+<div class="c" style="border-color:var(--acc)"><div class="ch" onclick="T(this)"><div class="cn na">?</div><div class="ct">Selbsttest — Bilanzkennziffern</div><div class="ca">▾</div></div><div class="cb">
+<div class="eq"><div class="eq-q">1. Formel Eigenkapitalquote?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">(EK × 100) / Gesamtkapital. Soll: mind. 20 %.</div></div>
+<div class="eq"><div class="eq-q">2. Was ist der Unterschied zwischen Anlagendeckung I und II?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">ADG I: Nur EK vs. AV (goldene Bilanzregel, sollte ≥ 100 %). ADG II: EK + langfr. FK vs. AV (silberne Bilanzregel, MUSS ≥ 100 %). Fristenkongruenz!</div></div>
+<div class="eq"><div class="eq-q">3. Berechne die Liquidität 2. Grades für Zeiler Jahr 3.</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Liq. Mittel (44+8=52) + Forderungen (96) = 148. Kurzfr. Verbindl. = 281. → (148 × 100) / 281 = 52,7 %. Deutlich unter 100 % → problematisch!</div></div>
+</div></div>
+</div>
+
+<!-- ===== 7 ERTRAG ===== -->
+<div class="sec" id="s7">
+<div class="st">Ertragskennziffern</div>
+<div class="ss">Auch auswendig. Zeigt ob das Unternehmen genug verdient.</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nt">1</div><div class="ct">Alle Formeln</div><div class="ca o">▾</div></div><div class="cb o">
+<p><span class="hl">EK-Rentabilität</span></p><div class="fm">(Gewinn × 100) / Eigenkapital</div><div class="fn">Lohnt sich das Investment für die Eigentümer?</div>
+<p style="margin-top:10px"><span class="hl">GK-Rentabilität</span></p><div class="fm">((Gewinn + Zinsen) × 100) / Gesamtkapital</div><div class="fn">Zinsen addiert, weil FK auch "arbeitet". Gesamtleistung des U.</div>
+<p style="margin-top:10px"><span class="hl">Umsatzrentabilität</span></p><div class="fm">(Gewinn × 100) / Umsatz</div><div class="fn">Wie viel Cent Gewinn pro Euro Umsatz?</div>
+<p style="margin-top:10px"><span class="hl">ROI (Return on Investment)</span></p><div class="fm">(Gewinn / Umsatz) × (Umsatz / GK) × 100</div><div class="fn">Umsatzrentabilität × Kapitalumschlag. Die "Königskennzahl".</div>
+<p style="margin-top:10px"><span class="hl">Cashflow</span></p><div class="fm">JÜ + Abschreibungen + Erhöhung langfr. Rückst. + ao. Aufw. − ao. Ertr.</div><div class="fn">Zeigt wie viel Geld WIRKLICH fließt. Abschreibungen dazu weil kein echter Geldabfluss!</div>
+</div></div>
+<div class="c" style="border-color:var(--acc)"><div class="ch" onclick="T(this)"><div class="cn na">?</div><div class="ct">Selbsttest — Ertragskennziffern</div><div class="ca">▾</div></div><div class="cb">
+<div class="eq"><div class="eq-q">1. Warum werden bei der GK-Rentabilität die Zinsen zum Gewinn addiert?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Weil auch das Fremdkapital im Unternehmen "arbeitet" und zum Ergebnis beiträgt. Die Zinsen sind die "Rendite" des FK. Ohne Addition würde man nur die EK-Leistung sehen.</div></div>
+<div class="eq"><div class="eq-q">2. Formel ROI?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">(Gewinn / Umsatz) × (Umsatz / Gesamtkapital) × 100. Oder: Umsatzrentabilität × Kapitalumschlag.</div></div>
+<div class="eq"><div class="eq-q">3. Warum zählen Abschreibungen beim Cashflow dazu, obwohl sie Aufwand sind?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Abschreibungen sind nur ein buchhalterischer Aufwand — es fließt kein echtes Geld ab. Das Unternehmen hat also mehr Cash als der Jahresüberschuss allein zeigt.</div></div>
+</div></div>
+</div>
+
+<!-- ===== 8 RATING ===== -->
+<div class="sec" id="s8">
+<div class="st">Rating</div>
+<div class="ss">Alles zusammenpacken → Note → Entscheidung.</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn np">R</div><div class="ct">Was ist Rating?</div><div class="ca o">▾</div></div><div class="cb o">
+<p>Ihr packt alle Infos zusammen und gebt Zeiler eine <span class="hl">Note</span>. Die bestimmt:</p>
+<div class="bx b4">1. <span class="hl">Ob</span> er den Kredit bekommt<br>2. <span class="hl">Welchen Zinssatz</span> er zahlt (schlechte Note = hoher Zins)<br>3. <span class="hl">Welche Sicherheiten</span> ihr verlangt</div>
+<div class="bx b6"><span class="hl">Quantitativ</span> = alles berechenbar → Bilanzkennziffern, Ertragskennziffern, Cashflow</div>
+<div class="bx b5"><span class="hl">Qualitativ</span> = Einschätzung → Management, Branche, Markt, Nachfolge, Kontoführung, Aufgeschlossenheit, Reputation</div>
+</div></div>
+<div class="c" style="border-color:var(--acc)"><div class="ch" onclick="T(this)"><div class="cn na">?</div><div class="ct">Selbsttest — Rating</div><div class="ca">▾</div></div><div class="cb">
+<div class="eq"><div class="eq-q">1. Was bestimmt die Rating-Note?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Ob der Kredit vergeben wird, welchen Zinssatz der Kunde zahlt, und welche Sicherheiten verlangt werden.</div></div>
+<div class="eq"><div class="eq-q">2. Nennen Sie 3 qualitative Rating-Faktoren.</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Z.B.: Managementqualität, Branchensituation, Marktstellung, Nachfolgeregelung, Kontoführungsverhalten, Informationsverhalten/Aufgeschlossenheit.</div></div>
+</div></div>
+</div>
+
+<!-- ===== 9 DARLEHEN ===== -->
+<div class="sec" id="s9">
+<div class="st">Darlehen berechnen</div>
+<div class="ss">Formeln + Schema für die Tabelle. Nur erste 2 Monate berechnen.</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nc">A</div><div class="ct">Annuitätendarlehen</div><div class="ca o">▾</div></div><div class="cb o">
+<div class="fm">Annuität = Zinsen + Tilgung (bleibt IMMER gleich)</div>
+<div class="fm">Zinsen = Restdarlehen × Zinssatz / 12</div>
+<div class="fm">Tilgung = Annuität − Zinsen</div>
+<div class="fm">Neues Restdarlehen = Altes Restdarlehen − Tilgung</div>
+<div class="fn">Zinsen ↓ Tilgung ↑ Annuität = gleich</div>
+<p style="margin-top:10px"><span class="hl">Beispiel Zeiler:</span> 1.400.000 €, 4,25 % p.a., 2 % Tilgung</p>
+<table class="tbl"><tr><th>Monat</th><th class="r">Darlehen</th><th class="r">Zinsen</th><th class="r">Tilgung</th><th class="r">Annuität</th></tr>
+<tr><td>1</td><td class="r">1.400.000</td><td class="r">4.958,33</td><td class="r">2.333,33</td><td class="r">7.291,66</td></tr>
+<tr><td>2</td><td class="r">1.397.666,67</td><td class="r">4.950,07</td><td class="r">2.341,59</td><td class="r">7.291,66</td></tr></table>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nb1">T</div><div class="ct">Tilgungsdarlehen</div><div class="ca o">▾</div></div><div class="cb o">
+<div class="fm">Tilgung = Darlehensbetrag × Tilgungssatz / 12 (IMMER gleich)</div>
+<div class="fm">Zinsen = Restdarlehen × Zinssatz / 12</div>
+<div class="fm">Rate = Zinsen + Tilgung</div>
+<div class="fn">Zinsen ↓ Tilgung = gleich Rate ↓</div>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nam">S</div><div class="ct">Skonto — Effektivzins</div><div class="ca">▾</div></div><div class="cb">
+<div class="fm">Effektivzins = (Skontosatz × 360) / (Zahlungsziel − Skontofrist)</div>
+<div class="fn">Beispiel: 3 % Skonto bei 10 Tagen, 30 Tage netto → (3 × 360) / (30 − 10) = 54 % p.a.</div>
+<p>Wenn Bankkredit < 54 % → Skonto nutzen, mit Kredit finanzieren!</p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nc">K</div><div class="ct">Kontokorrent — Sollzinsen</div><div class="ca">▾</div></div><div class="cb">
+<div class="fm">Zinszahl = (Betrag × Tage) / 100</div>
+<div class="fm">Sollzinsen = Σ Zinszahlen × Zinssatz / 360</div>
+<p><span class="hl">Genehmigte ÜZ</span> → eigener (niedrigerer) Zinssatz</p>
+<p><span class="hl">Geduldete ÜZ</span> → höherer Zinssatz</p>
+<p><span class="hl">Kreditprovision</span> → auf genehmigte, aber NICHT genutzte Überziehung</p>
+</div></div>
+<div class="c" style="border-color:var(--acc)"><div class="ch" onclick="T(this)"><div class="cn na">?</div><div class="ct">Selbsttest — Darlehen</div><div class="ca">▾</div></div><div class="cb">
+<div class="eq"><div class="eq-q">1. Annuität 1.400.000 €, 4,25 % p.a., 2 % Tilgung — wie hoch sind die Zinsen im 1. Monat?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">1.400.000 × 4,25 % / 12 = 1.400.000 × 0,0425 / 12 = 4.958,33 €</div></div>
+<div class="eq"><div class="eq-q">2. Skonto: 2 % bei 10 Tagen, 60 Tage netto. Wie hoch ist der Effektivzins?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">(2 × 360) / (60 − 10) = 720 / 50 = 14,4 % p.a. Wenn Bankkredit unter 14,4 % → Skonto nutzen!</div></div>
+<div class="eq"><div class="eq-q">3. Worauf wird die Kreditprovision beim Kontokorrent berechnet?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Auf den Teil der genehmigten Überziehung, der NICHT in Anspruch genommen wurde. Also: Kreditlinie minus tatsächliche Nutzung.</div></div>
+</div></div>
+</div>
+
+<!-- ===== 10 SICHERHEITEN ===== -->
+<div class="sec" id="s10">
+<div class="st">Sicherheiten</div>
+<div class="ss">Frau HOL: "Sicherungsabtretung, Zession, Grundschuld — das spielt eine Rolle."</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn np">B</div><div class="ct">Beleihungsgrenzen</div><div class="ca o">▾</div></div><div class="cb o">
+<table class="tbl"><tr><th>Sicherheit</th><th>Beleihungsgrenze</th></tr>
+<tr><td>Bankguthaben</td><td class="r">100 % Nennwert</td></tr>
+<tr><td>Grundstücke</td><td class="r">60–80 % Verkehrswert</td></tr>
+<tr><td>Lebensversicherung</td><td class="r">100 % Rückkaufwert − KESt</td></tr>
+<tr><td>Schuldversch. öff.</td><td class="r">80 % Kurswert</td></tr>
+<tr><td>Aktien/Aktienfonds</td><td class="r">50–60 % Kurswert</td></tr>
+<tr><td>Rentenfonds</td><td class="r">70 % Rücknahmepreis</td></tr>
+<tr><td>Bürgschaft</td><td class="r">100 % Bürgschaftsbetrag</td></tr>
+<tr><td>Maschinen/BGA</td><td class="r">30–50 % Zeitwert</td></tr>
+<tr><td>Forderungen</td><td class="r">20–80 % (öff. Hand: 90 %)</td></tr>
+<tr><td>Warenlager</td><td class="r">10–50 % Einstandspreis</td></tr></table>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn ng">S</div><div class="ct">Sicherungsübereignung (SÜ)</div><div class="ca o">▾</div></div><div class="cb o">
+<div class="bx b2"><span class="hl">Prinzip:</span> DN übereignet Sache an KI → KI = Eigentümer, DN = Besitzer (darf Sache weiter nutzen!)</div>
+<div class="bx b1"><span class="hl">Bestimmtheitsgrundsatz:</span> Jeder Außenstehende muss anhand der Vertragsunterlagen eindeutig die Sachen bestimmen können.</div>
+<p><span class="hl">Kfz:</span> Hersteller, Marke, Typ, FIN, Kennzeichen, Baujahr + Vollkasko-Nachweis</p>
+<p><span class="hl">Maschinen:</span> Genaue Beschreibung im SÜ-Vertrag, evtl. Markierung ("Aufkleber"), Versicherung</p>
+<p><span class="hl">Warenlager fest:</span> Raumsicherungsübereignung (bestimmter Lagerbereich)</p>
+<p><span class="hl">Warenlager variabel:</span> Monatl. Bestandsmeldungen, alle Auffüllungen = automatisch SÜ</p>
+<div class="bx b7"><span class="hl">vs. Verpfändung:</span> Bei Verpfändung müsste die Sache ÜBERGEBEN werden → Unternehmen kann sie nicht mehr nutzen. Deswegen SÜ besser!</div>
+<div class="bx b3"><span class="hl">Verwertung:</span> Bank holt Sache → verkauft → Erlös auf Restschuld. Überschuss zurück an DN. Reicht Erlös nicht → Restforderung bleibt.</div>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nb1">G</div><div class="ct">Grundschuld</div><div class="ca">▾</div></div><div class="cb">
+<div class="bx b1"><span class="hl">Grundschuld = dingliches Recht an einem Grundstück.</span> Wird im Grundbuch eingetragen. Wenn Zeiler nicht zahlt, kann die Bank das Grundstück zwangsversteigern.</div>
+<p>Frau HOL: "Wenn er eine Immobilie hat, kann man das auch mit Grundschulden absichern."</p>
+<p><span class="hl">Unterschied zur Hypothek:</span> Grundschuld ist NICHT an eine bestimmte Forderung gebunden (abstrakt). Hypothek schon (akzessorisch). In der Praxis nutzen Banken fast nur Grundschulden.</p>
+</div></div>
+<div class="c" style="border-color:var(--acc)"><div class="ch" onclick="T(this)"><div class="cn na">?</div><div class="ct">Selbsttest — Sicherheiten</div><div class="ca">▾</div></div><div class="cb">
+<div class="eq"><div class="eq-q">1. Warum wird bei Firmenkunden die SÜ statt Verpfändung bevorzugt?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Bei Verpfändung muss die Sache übergeben werden → Unternehmen kann sie nicht mehr nutzen. Bei SÜ bleibt der DN Besitzer und kann die Sache weiter für sein Geschäft einsetzen.</div></div>
+<div class="eq"><div class="eq-q">2. Wie wird ein Kfz bei der SÜ individualisiert (Bestimmtheitsgrundsatz)?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Hersteller, Marke, Typ, Fahrgestellnummer (FIN), amtliches Kennzeichen, Baujahr, besondere Merkmale. + Nachweis Vollkaskoversicherung.</div></div>
+<div class="eq"><div class="eq-q">3. Beleihungsgrenze für Maschinen? Für Aktien?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Maschinen: 30–50 % des Zeitwerts. Aktien: 50–60 % des Kurswerts.</div></div>
+</div></div>
+</div>
+
+<!-- ===== 11 ZESSION ===== -->
+<div class="sec" id="s11">
+<div class="st">Zession (Forderungsabtretung)</div>
+<div class="ss">Frau HOL hat Sicherungsabtretung explizit genannt.</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nt">G</div><div class="ct">Globalzession</div><div class="ca o">▾</div></div><div class="cb o">
+<div class="bx b6"><span class="hl">ALLE gegenwärtigen + zukünftigen Forderungen</span> werden auf einmal abgetreten.</div>
+<p><span class="hl">Übergang:</span> Automatisch bei Entstehung der Forderung</p>
+<p><span class="hl">Individualisierung:</span> Durch Drittschuldner-Bestimmung — alphabetisch (A–H), regional, oder per Kundenliste</p>
+<p><span class="hl">Stille Zession:</span> Drittschuldner erfährt NICHTS → Kreditnehmer zieht Forderungen weiter selbst ein</p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nam">M</div><div class="ct">Mantelzession</div><div class="ca o">▾</div></div><div class="cb o">
+<div class="bx b5"><span class="hl">Einzelne Forderungen</span> werden konkret bezeichnet: Rechnungsnr., Betrag, Schuldner, Datum.</div>
+<p>Jede Forderung muss einzeln abgetreten werden. Mehr Aufwand als Global.</p>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn na">!</div><div class="ct">Bewertung + BGH-Grenzen</div><div class="ca">▾</div></div><div class="cb">
+<p><span class="hl">Abzüge vom Forderungsbestand:</span></p>
+<div class="bx b7">→ Forderungen mit verlängertem Eigentumsvorbehalt<br>→ Aufrechenbare Forderungen<br>→ Einredebehaftete Forderungen (z.B. mangelhafte Lieferung)</div>
+<p>Dann: <span class="hl">Sicherheitsabschlag</span> (z.B. 20 %)</p>
+<p><span class="hl">Übersicherung:</span> BGH-Vermutung bei Nennwert > 150 % der gesicherten Forderung</p>
+<p><span class="hl">Freigabepflicht:</span> Bei realisierbarem Wert > 110 %</p>
+<p><span class="hl">Verlängerter EV:</span> Vorbehaltslieferant hat Vorrang → Bank vereinbart Teilabtretungsklausel</p>
+</div></div>
+<div class="c" style="border-color:var(--acc)"><div class="ch" onclick="T(this)"><div class="cn na">?</div><div class="ct">Selbsttest — Zession</div><div class="ca">▾</div></div><div class="cb">
+<div class="eq"><div class="eq-q">1. Hauptunterschied Globalzession vs. Mantelzession?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Global: ALLE Forderungen (gegenwärtig + zukünftig) auf einmal, automatischer Übergang bei Entstehung. Mantel: Einzelne Forderungen konkret bezeichnet (Rechnungsnr., Betrag, Schuldner).</div></div>
+<div class="eq"><div class="eq-q">2. Was bedeutet "stille Zession"?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Der Drittschuldner (= Kunde des Kreditnehmers) erfährt nichts von der Abtretung. Der Kreditnehmer zieht die Forderungen weiter selbst ein.</div></div>
+<div class="eq"><div class="eq-q">3. Ab welchem Wert vermutet der BGH eine Übersicherung?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Wenn der Nennwert der abgetretenen Forderungen 150 % der gesicherten Forderung übersteigt. Freigabepflicht ab 110 % des realisierbaren Werts.</div></div>
+</div></div>
+</div>
+
+<!-- ===== 12 ÜBERWACHUNG ===== -->
+<div class="sec" id="s12">
+<div class="st">Kreditüberwachung</div>
+<div class="ss">Frau HOL: "Was müssen Sie tun NACHDEM der Kredit ausgezahlt ist? Das kann morgen drankommen!"</div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn na">!</div><div class="ct">Nach der Auszahlung — was tut die Bank?</div><div class="ca o">▾</div></div><div class="cb o">
+<p>Kredit ist raus. Aber euer Job ist nicht vorbei. Ihr müsst den Kredit auf <span class="hl">Ausfall und Risiko überwachen</span>.</p>
+<div class="bx b1"><span class="hl">Quartalsweise:</span> BWA (Betriebswirtschaftliche Auswertung) anfordern → aktuelle Zahlen prüfen</div>
+<div class="bx b2"><span class="hl">Jährlich:</span> Jahresabschluss komplett anfordern (Bilanz + GuV) → Kennziffern neu berechnen → Ist er noch genauso kreditwürdig wie bei der Vergabe?</div>
+<div class="bx b5"><span class="hl">Kostenvoranschläge:</span> Prüfen ob die tatsächlichen Rechnungen zu den Kostenvoranschlägen passen (wurde das Geld wirklich für den Zweck verwendet?)</div>
+<div class="bx b3"><span class="hl">Kontoführung beobachten:</span> Überziehungen? Unregelmäßigkeiten? Rückläufer?</div>
+<div class="bx b4"><span class="hl">Sicherheiten prüfen:</span> Sind die Sicherheiten noch werthaltig? Warenlager noch da? Maschinen noch versichert?</div>
+</div></div>
+<div class="c"><div class="ch" onclick="T(this)"><div class="cn nc">W</div><div class="ct">Warnsignale — wann wird es kritisch?</div><div class="ca">▾</div></div><div class="cb">
+<div class="bx b7">→ Konto dauerhaft überzogen<br>→ BWA/Bilanz werden nicht pünktlich geliefert<br>→ Umsatz sinkt stark<br>→ Kennziffern verschlechtern sich<br>→ Branchenprobleme<br>→ Kreditnehmer ist nicht mehr kooperativ (→ Soft Skills!)<br>→ Sicherheiten verlieren an Wert</div>
+<p>Wenn Warnsignale auftreten: <span class="hl">Gespräch mit Kreditnehmer</span> → evtl. Ratinganpassung → schlimmstenfalls: Kredit kündigen und Sicherheiten verwerten.</p>
+</div></div>
+<div class="c" style="border-color:var(--acc)"><div class="ch" onclick="T(this)"><div class="cn na">?</div><div class="ct">Selbsttest — Kreditüberwachung</div><div class="ca">▾</div></div><div class="cb">
+<div class="eq"><div class="eq-q">1. Welche Unterlagen fordert die Bank regelmäßig nach Kreditauszahlung an?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Quartalsweise: BWA. Jährlich: Jahresabschluss (Bilanz + GuV). Dazu: Kostenvoranschläge und Rechnungen vergleichen.</div></div>
+<div class="eq"><div class="eq-q">2. Nennen Sie 3 Warnsignale, die auf einen Problemkredit hindeuten.</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Z.B.: Konto dauerhaft überzogen, BWA/Bilanz werden nicht pünktlich geliefert, Umsatz sinkt stark, Kennziffern verschlechtern sich, Kreditnehmer nicht mehr kooperativ.</div></div>
+<div class="eq"><div class="eq-q">3. Warum prüft die Bank Kostenvoranschläge gegen tatsächliche Rechnungen?</div><div class="eq-t" onclick="H(this)">Antwort zeigen ▾</div><div class="eq-h">Um sicherzustellen, dass der Kredit zweckgebunden verwendet wurde. Wenn der KN 1,4 Mio. für Maschinen beantragt hat, muss das Geld auch dafür ausgegeben worden sein.</div></div>
+</div></div>
+</div>
+
+<!-- ===== 13 KLAUSURFRAGEN ===== -->
+<div class="sec" id="s13">
+<div class="st">Predictions 🎰</div>
+<div class="ss">Wahrscheinlichkeit hoch — basierend auf dem was heute im Unterricht besprochen wurde. No guarantee, but we're gambling here.</div>
+
+<div class="eq"><div class="eq-n">AUFGABE 1 — 🔴 95 %</div>
+<div class="eq-q">Stellen Sie die Unterschiede zwischen einem Investitionskredit und einem Betriebsmittelkredit gegenüber.</div>
+<div class="eq-p">Tabelle mit Merkmalen: Zweck, Laufzeit, Zinssatz, Kreditart</div>
+<div class="eq-t" onclick="H(this)">Lösungshinweis zeigen ▾</div>
+<div class="eq-h">Investitionskredit: langfristig, Festzins, für AV (Maschinen/Immobilien), Annuitäten-/Tilgungsdarlehen. Betriebsmittelkredit: kurzfristig, variabler Zins, für UV (Rohstoffe/Löhne), Kontokorrentkredit.</div></div>
+
+<div class="eq"><div class="eq-n">AUFGABE 2 — 🔴 90 %</div>
+<div class="eq-q">Welche Unterlagen sollte Herr Zeiler zum Kreditgespräch mitbringen? Notieren Sie, wozu diese Unterlagen dienen.</div>
+<div class="eq-p">Tabelle: Unterlage | Zweck</div>
+<div class="eq-t" onclick="H(this)">Lösungshinweis zeigen ▾</div>
+<div class="eq-h">Jahresabschlüsse (3J) → Vermögens-/Ertragslage. HR-Auszug → Kreditfähigkeit/Vertretung. Gesellschaftsvertrag → Haftung. BWA → aktuelle Zahlen. Investitionsplan → Mittelverwendung. Liquiditätsplan → Ratenbedienbarkeit.</div></div>
+
+<div class="eq"><div class="eq-n">AUFGABE 3 — 🔴 95 % (hat sie EXTRA betont)</div>
+<div class="eq-q">Nennen Sie 3 Aspekte der persönlichen Kreditwürdigkeit (Soft Skills) und erklären Sie jeweils, warum diese für die Bank wichtig sind.</div>
+<div class="eq-p">Frau HOL hat Soft Skills explizit betont!</div>
+<div class="eq-t" onclick="H(this)">Lösungshinweis zeigen ▾</div>
+<div class="eq-h">1. Fachliche Qualifikation → Hat er Ahnung vom Geschäft? 2. Aufgeschlossenheit/Kooperationsbereitschaft → Liefert er Unterlagen freiwillig? 3. Reputation → Guter Ruf in der Branche = geringeres Risiko. Weitere: Nachfolgeregelung, Kontoführungsverhalten, Zuverlässigkeit.</div></div>
+
+<div class="eq"><div class="eq-n">AUFGABE 4 — 🔴 90 %</div>
+<div class="eq-q">Lesen Sie § 18 KWG und begründen Sie, warum Herr Zeiler seine Jahresabschlüsse vorlegen muss.</div>
+<div class="eq-t" onclick="H(this)">Lösungshinweis zeigen ▾</div>
+<div class="eq-h">§ 18 KWG: Bei Krediten über 750.000 € muss sich das KI die wirtschaftlichen Verhältnisse des KN offenlegen lassen. Zeiler beantragt 1,55 Mio. € → über 750k → Pflicht. Ohne Offenlegung darf der Kredit nicht vergeben werden.</div></div>
+
+<div class="eq"><div class="eq-n">AUFGABE 5 — 🔴 85 %</div>
+<div class="eq-q">Berechnen Sie für das Annuitätendarlehen über 1.400.000 € (4,25 % p.a., 2 % Tilgung) die ersten beiden Monate. Verwenden Sie das Schema: Monat | Darlehen | Zinsen | Tilgung | Annuität.</div>
+<div class="eq-t" onclick="H(this)">Lösungshinweis zeigen ▾</div>
+<div class="eq-h">Annuität = immer gleich = Z + T. Monat 1: Zinsen = 1.400.000 × 4,25 % / 12 = 4.958,33. Tilgung = 1.400.000 × 2 % / 12 = 2.333,33. Annuität = 7.291,66. Monat 2: Restdarlehen = 1.397.666,67 → neue Zinsen, Tilgung = Annuität − Zinsen.</div></div>
+
+<div class="eq"><div class="eq-n">AUFGABE 6 — 🟠 75 %</div>
+<div class="eq-q">Berechnen Sie die Eigenkapitalquote, den Verschuldungsgrad und die Anlagendeckung II für die Bäckerei Zeiler GmbH (Jahr 3). Beurteilen Sie die Ergebnisse.</div>
+<div class="eq-t" onclick="H(this)">Lösungshinweis zeigen ▾</div>
+<div class="eq-h">EK J3 = 354 + 2 + 48 = 404. GK = 2.390. EK-Quote = (404×100)/2.390 = 16,9 % → unter 20 %, zu niedrig. Verschuldung = 83,1 %. ADG II = ((404+1.452)×100)/2.006 = 92,5 % → unter 100 %, silberne Regel nicht erfüllt.</div></div>
+
+<div class="eq"><div class="eq-n">AUFGABE 7 — 🟠 70 %</div>
+<div class="eq-q">Erklären Sie den Unterschied zwischen Sicherungsübereignung und Verpfändung. Warum wird bei Firmenkunden die SÜ bevorzugt?</div>
+<div class="eq-t" onclick="H(this)">Lösungshinweis zeigen ▾</div>
+<div class="eq-h">SÜ: KI wird Eigentümer, DN bleibt Besitzer → kann Sache weiter nutzen. Verpfändung: Sache müsste übergeben werden → Unternehmen kann sie nicht nutzen. Bei Maschinen/Kfz/Warenlager = SÜ, weil das U sie zum Arbeiten braucht.</div></div>
+
+<div class="eq"><div class="eq-n">AUFGABE 8 — 🟠 75 %</div>
+<div class="eq-q">Erarbeiten Sie die Unterschiede zwischen Globalzession und Mantelzession: Zeitpunkt der Übertragung, benötigte Unterlagen, Bestimmbarkeit der Forderungen.</div>
+<div class="eq-t" onclick="H(this)">Lösungshinweis zeigen ▾</div>
+<div class="eq-h">Global: Alle Ford. bei Entstehung automatisch. Bestimmung über Drittschuldner (alphabetisch/regional). Kundenliste. Mantel: Einzelne Ford. konkret bezeichnet (Rechnungsnr., Betrag, Schuldner, Datum). Jede einzeln abgetreten.</div></div>
+
+<div class="eq"><div class="eq-n">AUFGABE 9 — 🔴 90 % (hat sie EXPLIZIT gesagt!)</div>
+<div class="eq-q">Der Kredit an die Bäckerei Zeiler GmbH ist ausgezahlt. Beschreiben Sie, welche Maßnahmen die Rottweiler Bank AG zur Kreditüberwachung ergreifen muss.</div>
+<div class="eq-t" onclick="H(this)">Lösungshinweis zeigen ▾</div>
+<div class="eq-h">1. Quartalsweise BWA anfordern. 2. Jährlich Jahresabschluss (Bilanz+GuV) anfordern → Kennziffern neu berechnen. 3. Prüfen ob Kreditwürdigkeit noch gegeben. 4. Kostenvoranschläge mit Rechnungen vergleichen. 5. Kontoführung beobachten. 6. Sicherheiten auf Werthaltigkeit prüfen.</div></div>
+
+<div class="eq"><div class="eq-n">AUFGABE 10 — 🟡 50 %</div>
+<div class="eq-q">Erklären Sie, was MaRisk ist und warum die Trennung von Markt und Marktfolge bei der Kreditvergabe wichtig ist.</div>
+<div class="eq-t" onclick="H(this)">Lösungshinweis zeigen ▾</div>
+<div class="eq-h">MaRisk = Mindestanforderungen an das Risikomanagement (BaFin). Markt = Kundenberater (verkauft Kredit). Marktfolge = Risikoabteilung (genehmigt Kredit). Trennung = Vier-Augen-Prinzip → der der verkauft darf nicht der sein der genehmigt → verhindert Interessenkonflikte.</div></div>
+
+<div class="eq"><div class="eq-n">AUFGABE 11 — 🟡 40 %</div>
+<div class="eq-q">Erklären Sie kurz, was Factoring ist und ordnen Sie es in die Unternehmensfinanzierung ein.</div>
+<div class="eq-t" onclick="H(this)">Lösungshinweis zeigen ▾</div>
+<div class="eq-h">Factoring = Verkauf von Forderungen aus LuL an einen Factor. Unternehmen bekommt sofort Liquidität. Factor übernimmt ggf. Ausfallrisiko. Einordnung: Außenfinanzierung (Geld kommt von außen) / Fremdfinanzierung. Auch als Sicherungsinstrument nutzbar.</div></div>
+
+<div class="eq"><div class="eq-n">AUFGABE 12 — 🟡 55 %</div>
+<div class="eq-q">Nennen Sie die Beleihungsgrenzen für: Grundstücke, Aktien, Maschinen, Forderungen, Bankguthaben.</div>
+<div class="eq-t" onclick="H(this)">Lösungshinweis zeigen ▾</div>
+<div class="eq-h">Grundstücke: 60–80 % Verkehrswert. Aktien: 50–60 % Kurswert. Maschinen: 30–50 % Zeitwert. Forderungen: 20–80 % (öff. Hand 90 %). Bankguthaben: 100 % Nennwert.</div></div>
+</div>
+
+<script>
+function S(n){
+  document.querySelectorAll('.sec').forEach((s,i)=>{s.classList.toggle('a',i===n)});
+  document.querySelectorAll('.nb').forEach((b,i)=>{b.classList.toggle('a',i===n)});
+  window.scrollTo(0,0);
+}
+function T(el){
+  el.querySelector('.ca').classList.toggle('o');
+  el.nextElementSibling.classList.toggle('o');
+}
+function H(el){
+  const h=el.nextElementSibling;
+  h.classList.toggle('o');
+  el.textContent=h.classList.contains('o')?'Lösungshinweis verstecken ▴':'Lösungshinweis zeigen ▾';
+}
+</script>
+</body>
+</html>
