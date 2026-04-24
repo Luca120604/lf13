@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#2f5d3a"/>
+  <g fill="none" stroke="#f5f3ee" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="150" cy="326" r="76"/>
+    <circle cx="362" cy="326" r="76"/>
+    <path d="M150 326 L256 176 L362 326 M256 176 L294 176 M214 326 L294 176"/>
+    <circle cx="294" cy="144" r="16" fill="#f5f3ee"/>
+  </g>
+  <text x="256" y="472" text-anchor="middle" fill="#f5f3ee" font-family="Inter, sans-serif" font-size="48" font-weight="800" letter-spacing="4">ROLAND</text>
+</svg>

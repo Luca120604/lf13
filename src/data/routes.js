@@ -1,0 +1,93 @@
+// Starter-Routen Schwarzwald / Kinzigtal. Frei erweiterbar.
+// Koordinaten sind grob gesetzt — Nutzer öffnet die Navigation ohnehin in Maps/Komoot.
+
+export const SEED_ROUTES = [
+  {
+    id: 'kinzig-schenkenzell-schiltach',
+    name: 'Kinzig-Runde Schenkenzell ↔ Schiltach',
+    region: 'Kinzigtal',
+    start: 'Schenkenzell',
+    end: 'Schenkenzell',
+    loop: true,
+    lengthKm: 18,
+    durationMin: 75,
+    elevationM: 180,
+    difficulty: 'leicht',
+    vibe: 'entspannt',
+    ebike: false,
+    description:
+      'Gemütliche Runde entlang der Kinzig bis Schiltach und zurück. Viel Flachstück, schöne Flusspassagen, ideal für locker Rollen.',
+    images: [],
+    links: {
+      gmaps: 'https://www.google.com/maps/dir/Schenkenzell/Schiltach',
+      komoot: 'https://www.komoot.com/discover/Schenkenzell',
+      outdooractive: 'https://www.outdooractive.com/de/fahrradtouren/schenkenzell/',
+    },
+  },
+  {
+    id: 'wolfach-aussicht',
+    name: 'Wolfach Aussichtstour',
+    region: 'Kinzigtal',
+    start: 'Wolfach',
+    end: 'Wolfach',
+    loop: true,
+    lengthKm: 32,
+    durationMin: 150,
+    elevationM: 620,
+    difficulty: 'mittel',
+    vibe: 'Aussicht',
+    ebike: true,
+    description:
+      'Wolfach rauf auf die Höhen mit Blick über den Schwarzwald. Einige knackige Anstiege — E-Bike hilft, geht aber auch sportlich.',
+    images: [],
+    links: {
+      gmaps: 'https://www.google.com/maps/place/Wolfach',
+      komoot: 'https://www.komoot.com/discover/Wolfach',
+      outdooractive: 'https://www.outdooractive.com/de/fahrradtouren/wolfach/',
+    },
+  },
+  {
+    id: 'hausach-haslach-gengenbach',
+    name: 'Hausach → Haslach → Gengenbach',
+    region: 'Kinzigtal',
+    start: 'Hausach',
+    end: 'Gengenbach',
+    loop: false,
+    lengthKm: 38,
+    durationMin: 160,
+    elevationM: 120,
+    difficulty: 'leicht',
+    vibe: 'entspannt',
+    ebike: false,
+    description:
+      'Kinzigtalradweg Richtung Offenburg. Flach, familienfreundlich, viele Einkehrmöglichkeiten. Rückweg bequem mit der Bahn.',
+    images: [],
+    links: {
+      gmaps: 'https://www.google.com/maps/dir/Hausach/Gengenbach',
+      komoot: 'https://www.komoot.com/discover/Kinzigtalradweg',
+      outdooractive: 'https://www.outdooractive.com/de/fahrradtouren/kinzigtal/',
+    },
+  },
+  {
+    id: 'schenkenzell-kniebis',
+    name: 'Schenkenzell → Kniebis (sportlich)',
+    region: 'Schwarzwald',
+    start: 'Schenkenzell',
+    end: 'Kniebis',
+    loop: false,
+    lengthKm: 28,
+    durationMin: 180,
+    elevationM: 900,
+    difficulty: 'schwer',
+    vibe: 'sportlich',
+    ebike: true,
+    description:
+      'Ordentliche Höhenmeter Richtung Kniebis. Lohnende Aussicht oben, Belohnung für die Waden. Mit E-Bike entspannter.',
+    images: [],
+    links: {
+      gmaps: 'https://www.google.com/maps/dir/Schenkenzell/Kniebis',
+      komoot: 'https://www.komoot.com/discover/Kniebis',
+      outdooractive: 'https://www.outdooractive.com/de/fahrradtouren/kniebis/',
+    },
+  },
+]
