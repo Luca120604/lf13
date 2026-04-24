@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #1d3521;
+  background: #f5f3ee;
+  overscroll-behavior-y: contain;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl font-semibold text-base transition active:scale-[.98] select-none;
+  }
+  .btn-primary { @apply btn bg-forest-700 text-stone-warm shadow-sm hover:bg-forest-800; }
+  .btn-secondary { @apply btn bg-forest-100 text-forest-800 hover:bg-forest-200; }
+  .btn-ghost { @apply btn bg-transparent text-forest-800 hover:bg-forest-100; }
+  .card {
+    @apply bg-white rounded-2xl p-4 border border-forest-100 shadow-[0_1px_0_rgba(0,0,0,0.02)];
+  }
+  .pill {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-forest-100 text-forest-800;
+  }
+  .input {
+    @apply w-full px-4 py-3 rounded-2xl border border-forest-200 bg-white text-forest-900 placeholder:text-forest-400 focus:outline-none focus:ring-2 focus:ring-forest-500;
+  }
+  .label {
+    @apply block text-sm font-semibold text-forest-800 mb-1;
+  }
+}
+
+.star-btn { transition: transform .15s ease; }
+.star-btn:active { transform: scale(1.2); }
