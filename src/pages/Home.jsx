@@ -1,4 +1,5 @@
 import React from 'react'
+import WeatherCard from '../components/WeatherCard.jsx'
 
 export default function Home({ go }) {
   return (
@@ -7,6 +8,8 @@ export default function Home({ go }) {
         <h1 className="text-3xl font-extrabold text-forest-900 leading-tight">Roland Radar</h1>
         <p className="text-forest-700 mt-1">Schwarzwald · Kinzigtal · Rad & Vital</p>
       </div>
+
+      <WeatherCard />
 
       <div className="grid grid-cols-1 gap-3">
         <button className="btn-primary text-lg py-5" onClick={() => go('find')}>

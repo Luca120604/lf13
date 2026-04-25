@@ -27,7 +27,7 @@ export default function App() {
             aria-label="Startseite"
           >
             <img
-              src="/icon.png"
+              src="/web-app-manifest-192x192.png"
               alt=""
               className="w-9 h-9 rounded-lg object-cover bg-black"
               onError={(e) => { e.currentTarget.style.display = 'none' }}
