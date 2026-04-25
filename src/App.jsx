@@ -8,7 +8,9 @@ import VitalHome from './pages/VitalHome.jsx'
 import VitalCheck from './pages/VitalCheck.jsx'
 import History from './pages/History.jsx'
 import BodyCheck from './pages/BodyCheck.jsx'
-import BottomNav from './components/BottomNav.jsx'
+import Camera from './pages/Camera.jsx'
+import Tipps from './pages/Tipps.jsx'
+import InteractiveMenu from './components/InteractiveMenu.jsx'
 
 const BACK_LABELS = {
   detail: { to: 'find', label: 'Routen' },
@@ -67,7 +69,7 @@ export default function App() {
 
       <main
         className="flex-1 max-w-xl w-full mx-auto px-4 pt-4"
-        style={{ paddingBottom: 'calc(80px + env(safe-area-inset-bottom))' }}
+        style={{ paddingBottom: 'calc(112px + env(safe-area-inset-bottom))' }}
       >
         {view === 'home' && <Home go={go} />}
         {view === 'find' && <RouteFinder go={go} />}
@@ -79,9 +81,11 @@ export default function App() {
         {view === 'vital-post' && <VitalCheck mode="post" go={go} />}
         {view === 'history' && <History go={go} />}
         {view === 'body' && <BodyCheck go={go} />}
+        {view === 'camera' && <Camera go={go} />}
+        {view === 'tipps' && <Tipps go={go} />}
       </main>
 
-      <BottomNav view={view} go={go} />
+      <InteractiveMenu view={view} go={go} />
     </div>
   )
 }
