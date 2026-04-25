@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Camera as CameraIcon, Pizza, Activity, Pill, Package, Watch, MoreHorizontal, X } from 'lucide-react'
+import { Camera as CameraIcon, Pizza, Activity, Pill, Package, Watch, MoreHorizontal, StickyNote, X } from 'lucide-react'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import { cn } from '../lib/cn.js'
+import PromptInputBox from '../components/ui/PromptInputBox.jsx'
 
 const CATEGORIES = [
   { k: 'essen',       label: 'Essen',       Icon: Pizza,           hint: 'Mahlzeit, Snack, Getränk' },
@@ -11,6 +12,7 @@ const CATEGORIES = [
   { k: 'verpackung',  label: 'Verpackung',  Icon: Package,         hint: 'Etikett, Inhaltsstoffe' },
   { k: 'smartwatch',  label: 'Smartwatch',  Icon: Watch,           hint: 'Schritte, Puls, HRV' },
   { k: 'sonstiges',   label: 'Sonstiges',   Icon: MoreHorizontal,  hint: 'Was du sonst festhalten willst' },
+  { k: 'notiz',       label: 'Notiz',       Icon: StickyNote,      hint: 'Freie Eingabe' },
 ]
 
 export default function Camera({ go }) {
@@ -81,22 +83,39 @@ export default function Camera({ go }) {
 
       <AnimatePresence mode="wait">
         {!preview ? (
-          <motion.button
+          <motion.div
             key="capture"
-            type="button"
-            onClick={pickFile}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            whileTap={{ scale: 0.98 }}
-            className="card w-full aspect-[4/3] flex flex-col items-center justify-center gap-3 border-dashed border-2 border-forest-200 bg-forest-50/40"
+            className="space-y-3"
           >
-            <div className="w-16 h-16 rounded-full bg-forest-700 text-stone-warm flex items-center justify-center shadow-[0_8px_18px_-4px_rgba(29,53,33,0.45)]">
-              <CameraIcon className="w-7 h-7" strokeWidth={2.2} />
-            </div>
-            <div className="text-forest-800 font-semibold">Foto aufnehmen</div>
-            <div className="text-xs text-forest-600">oder Bild aus der Galerie wählen</div>
-          </motion.button>
+            <PromptInputBox
+              placeholder="Notiz, Frage oder Bild — einfach senden"
+              onSend={(message, attachedImages) => {
+                const entry = {
+                  id: Date.now(),
+                  ts: new Date().toISOString(),
+                  category: 'notiz',
+                  note: message,
+                  dataUrl: attachedImages[0] || null,
+                }
+                setShots([entry, ...shots].slice(0, 12))
+              }}
+            />
+
+            <button
+              type="button"
+              onClick={pickFile}
+              className="card w-full aspect-[4/3] flex flex-col items-center justify-center gap-3 border-dashed border-2 border-forest-200 bg-forest-50/40 active:scale-[0.98] transition"
+            >
+              <div className="w-16 h-16 rounded-full bg-forest-700 text-stone-warm flex items-center justify-center shadow-[0_8px_18px_-4px_rgba(29,53,33,0.45)]">
+                <CameraIcon className="w-7 h-7" strokeWidth={2.2} />
+              </div>
+              <div className="text-forest-800 font-semibold">Foto mit Kategorie</div>
+              <div className="text-xs text-forest-600">oder Bild aus der Galerie wählen</div>
+            </button>
+          </motion.div>
         ) : (
           <motion.div
             key="preview"
@@ -196,13 +215,29 @@ export default function Camera({ go }) {
           <div className="grid grid-cols-3 gap-2">
             {shots.map((s) => {
               const c = CATEGORIES.find((x) => x.k === s.category)
+              if (s.dataUrl) {
+                return (
+                  <div key={s.id} className="relative aspect-square rounded-xl overflow-hidden border border-forest-100 bg-stone-warm">
+                    <img src={s.dataUrl} alt="" className="w-full h-full object-cover" />
+                    <div className="absolute bottom-1 left-1 right-1 flex items-center gap-1 bg-black/55 text-white text-[10px] font-medium rounded-md px-1.5 py-0.5">
+                      {c?.Icon && <c.Icon className="w-3 h-3" />}
+                      <span className="truncate">{c?.label || s.category}</span>
+                    </div>
+                  </div>
+                )
+              }
               return (
-                <div key={s.id} className="relative aspect-square rounded-xl overflow-hidden border border-forest-100 bg-stone-warm">
-                  <img src={s.dataUrl} alt="" className="w-full h-full object-cover" />
-                  <div className="absolute bottom-1 left-1 right-1 flex items-center gap-1 bg-black/55 text-white text-[10px] font-medium rounded-md px-1.5 py-0.5">
+                <div
+                  key={s.id}
+                  className="aspect-square rounded-xl border border-forest-100 bg-forest-50 p-2 flex flex-col gap-1 overflow-hidden"
+                >
+                  <div className="flex items-center gap-1 text-forest-700 text-[10px] font-semibold">
                     {c?.Icon && <c.Icon className="w-3 h-3" />}
                     <span className="truncate">{c?.label || s.category}</span>
                   </div>
+                  <p className="selectable text-xs text-forest-800 leading-snug overflow-hidden">
+                    {s.note}
+                  </p>
                 </div>
               )
             })}
