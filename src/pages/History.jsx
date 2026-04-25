@@ -44,6 +44,21 @@ export default function History({ go }) {
             </div>
             <button aria-label="Löschen" className="text-forest-600 px-2" onClick={() => remove(h.id)}>✕</button>
           </div>
+          {(h.mood > 0 || h.pulse > 0) && (
+            <div className="mt-2 flex gap-2 flex-wrap">
+              {h.mood > 0 && (
+                <span className="pill text-base">
+                  {['😩','😕','😐','🙂','😄'][h.mood - 1]}
+                </span>
+              )}
+              {h.pulse > 0 && (
+                <span className="pill">❤️ {h.pulse} BPM</span>
+              )}
+              {h.water != null && h.mode === 'pre' && (
+                <span className="pill">💧 {h.water}× 0,5 L</span>
+              )}
+            </div>
+          )}
           <div className="mt-2 grid grid-cols-5 gap-1">
             {Object.entries(h.answers).map(([k, v]) => (
               <div key={k} className="bg-forest-100 rounded-lg text-center py-1">
