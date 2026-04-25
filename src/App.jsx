@@ -26,7 +26,12 @@ export default function App() {
             className="flex items-center gap-2 active:scale-95 transition"
             aria-label="Startseite"
           >
-            <span className="w-8 h-8 rounded-lg bg-forest-700 text-stone-warm flex items-center justify-center font-bold">R</span>
+            <img
+              src="/icon.png"
+              alt=""
+              className="w-9 h-9 rounded-lg object-cover bg-black"
+              onError={(e) => { e.currentTarget.style.display = 'none' }}
+            />
             <span className="font-extrabold text-forest-900 tracking-tight">Roland Radar</span>
           </button>
           <div className="ml-auto flex gap-1">
