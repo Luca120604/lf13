@@ -9,6 +9,17 @@ body {
   color: #1d3521;
   background: #f5f3ee;
   overscroll-behavior-y: contain;
+  /* App-feel: text not selectable except in inputs */
+  -webkit-user-select: none;
+  user-select: none;
+}
+input, textarea, [contenteditable], .selectable {
+  -webkit-user-select: text;
+  user-select: text;
+}
+/* Tap highlight removal for app-like feel */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 @layer components {
