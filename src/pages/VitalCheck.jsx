@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import StarRating from '../components/StarRating.jsx'
+import MoodPicker from '../components/MoodPicker.jsx'
+import PulsePicker from '../components/PulsePicker.jsx'
 import ImageUpload from '../components/ImageUpload.jsx'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
 
@@ -19,7 +21,7 @@ const POST_QUESTIONS = [
   { k: 'pain', q: 'Wie schmerzfrei? (5 = keine)' },
 ]
 
-function evaluate(mode, answers, water) {
+function evaluate(mode, answers, water, mood, pulse) {
   const hints = []
   const v = (k) => answers[k] || 0
 
@@ -29,6 +31,7 @@ function evaluate(mode, answers, water) {
     if (v('fuel') > 0 && v('fuel') <= 2) hints.push({ t: 'warn', msg: 'Vor der Fahrt noch etwas essen und trinken.' })
     if (v('pain') > 0 && v('pain') <= 2) hints.push({ t: 'warn', msg: 'Schmerzen ernst nehmen — Belastung könnte ungünstig sein.' })
     if (v('motivation') > 0 && v('motivation') <= 2) hints.push({ t: 'info', msg: 'Motivation niedrig — vielleicht eine kürzere, entspannte Tour.' })
+    if (mood > 0 && mood <= 2) hints.push({ t: 'info', msg: 'Stimmung im Keller — kürzere Runde oder Pause könnte helfen.' })
     if (water != null && water < 2) hints.push({ t: 'info', msg: 'Nimm mindestens 0,5–1 L Wasser für unterwegs mit.' })
   } else {
     if (v('effort') >= 4) hints.push({ t: 'info', msg: 'War heftig — Erholung, Dehnung und trinken.' })
@@ -36,6 +39,12 @@ function evaluate(mode, answers, water) {
     if (v('dizzy') > 0 && v('dizzy') <= 2) hints.push({ t: 'alert', msg: 'Schwindel/Übelkeit: Pause einlegen, bei Anhalten Arzt kontaktieren.' })
     if (v('exhaustion') > 0 && v('exhaustion') <= 2) hints.push({ t: 'info', msg: 'Stark erschöpft — heute kein weiteres Training.' })
     if (v('pain') > 0 && v('pain') <= 2) hints.push({ t: 'warn', msg: 'Schmerzen beobachten. Bei Anhalten pausieren.' })
+    if (mood > 0 && mood <= 2) hints.push({ t: 'info', msg: 'Stimmung mau nach der Fahrt — Pause, Snack, etwas trinken.' })
+    if (pulse > 0) {
+      if (pulse > 160) hints.push({ t: 'alert', msg: 'Puls sehr hoch (>160). Hinsetzen, ruhig atmen. Bei Anhalten Arzt.' })
+      else if (pulse > 130) hints.push({ t: 'warn', msg: 'Puls deutlich erhöht (>130). Kurze Pause, sollte langsam sinken.' })
+      else if (pulse < 45) hints.push({ t: 'info', msg: 'Puls niedrig (<45). Ungewöhnlich kurz nach Belastung — beobachten.' })
+    }
   }
 
   if (hints.length === 0) {
@@ -48,14 +57,15 @@ export default function VitalCheck({ mode = 'pre', go }) {
   const questions = mode === 'pre' ? PRE_QUESTIONS : POST_QUESTIONS
   const [answers, setAnswers] = useState({})
   const [water, setWater] = useState(mode === 'pre' ? 1 : 0) // Flaschen à 0.5L
+  const [mood, setMood] = useState(0) // 0 = nicht gewählt, 1–5
+  const [pulse, setPulse] = useState(0) // 0 = nicht gemessen
   const [images, setImages] = useState([])
-  const [note, setNote] = useState('')
   const [done, setDone] = useState(false)
   const [history, setHistory] = useLocalStorage('roland.checks', [])
 
   function setAnswer(k, v) { setAnswers((s) => ({ ...s, [k]: v })) }
 
-  const hints = done ? evaluate(mode, answers, water) : []
+  const hints = done ? evaluate(mode, answers, water, mood, pulse) : []
 
   function finish() {
     const entry = {
@@ -64,7 +74,8 @@ export default function VitalCheck({ mode = 'pre', go }) {
       at: Date.now(),
       answers,
       water,
-      note,
+      mood,
+      pulse,
       images,
     }
     setHistory([entry, ...history])
@@ -114,6 +125,13 @@ export default function VitalCheck({ mode = 'pre', go }) {
         Vitalcheck — {mode === 'pre' ? 'vor der Fahrt' : 'nach der Fahrt'}
       </h2>
 
+      <div className="card">
+        <div className="text-forest-900 font-medium mb-3">
+          {mode === 'pre' ? 'Wie ist deine Stimmung gerade?' : 'Wie fühlst du dich nach der Fahrt?'}
+        </div>
+        <MoodPicker value={mood} onChange={setMood} />
+      </div>
+
       <div className="space-y-3">
         {questions.map((q) => (
           <div key={q.k} className="card">
@@ -122,6 +140,16 @@ export default function VitalCheck({ mode = 'pre', go }) {
           </div>
         ))}
       </div>
+
+      {mode === 'post' && (
+        <div className="card">
+          <div className="label">Puls (optional)</div>
+          <p className="text-xs text-forest-600 mb-3">
+            Finger im grünen Feld halten und nach oben ziehen, um den Wert zu erhöhen.
+          </p>
+          <PulsePicker value={pulse} onChange={setPulse} />
+        </div>
+      )}
 
       {mode === 'pre' && (
         <div className="card">
@@ -140,11 +168,6 @@ export default function VitalCheck({ mode = 'pre', go }) {
           z. B. Blutdruckgerät, Smartwatch (Apple Health / Garmin / Fitbit).
         </p>
         <ImageUpload images={images} onChange={setImages} label="Foto / Screenshot anhängen" />
-      </div>
-
-      <div className="card">
-        <label className="label">Notiz (optional)</label>
-        <textarea className="input" rows={2} value={note} onChange={(e) => setNote(e.target.value)} placeholder="z. B. Puls 72, Blutdruck 120/80" />
       </div>
 
       <div className="flex gap-2">
