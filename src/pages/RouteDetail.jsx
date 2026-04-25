@@ -2,6 +2,7 @@ import React from 'react'
 import { SEED_ROUTES } from '../data/routes.js'
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import DeepLinkButtons from '../components/DeepLinkButtons.jsx'
+import MapView from '../components/MapView.jsx'
 
 export default function RouteDetail({ routeId, go }) {
   const [userRoutes, setUserRoutes] = useLocalStorage('roland.routes', [])
@@ -37,6 +38,10 @@ export default function RouteDetail({ routeId, go }) {
           {!route.loop && route.end ? ` → ${route.end}` : route.loop ? ' · Rundtour' : ''}
         </div>
       </div>
+
+      {route.startCoords && (
+        <MapView start={route.startCoords} end={route.endCoords} />
+      )}
 
       {route.images?.length > 0 && (
         <div className="grid grid-cols-2 gap-2">
